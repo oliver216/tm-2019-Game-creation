@@ -2,6 +2,31 @@ import pygame
 import random
 
 
+class GameState:
+    """Defines the game state variables."""
+    def __init__(self):
+        argent = 0
+        ralentire = 1
+        booster = 1
+        essence_max = 2000
+        vitesse = 1
+        rotation = 1
+        valeur_gems = 1
+        puissance = 1
+        slow_fuel = 250
+
+    def load(self, file):
+        pass
+
+    def save(self, file):
+        pass
+
+    def print(self):
+        print('argent =', self.argent)
+        print('ralentire =', self.ralentire)
+        print('booster =', self.booster)
+        
+
 def creation_carte(plan, herbe, terre, pierre, obsidienne, bedrock, lave, fenetre, mineur, text):
     # crée la liste pour la carte
     # (0 = herbe, 1 = terre, 2 = pierre, 3 = obsidienne, 4 = bedrock, 5 = lave)
@@ -253,3 +278,9 @@ def son_oiseau(oiseau1, oiseau2):
         oiseau1.play()
     if son == 2:
         oiseau2.play()
+
+if __name__ == '__main__':
+    print('testing')
+
+    state = GameState()
+    state.print()
