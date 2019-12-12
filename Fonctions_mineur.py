@@ -184,3 +184,35 @@ def correction(c_x, mineur_x, mineur_y, sense, sense2, rotation):
         mineur_y += 0.1 * rotation
 
     return c_x, c_y, sense, mineur_x, mineur_y
+
+
+def creuser(band_time, band2, plan, mineur_x, mineur_y):
+    # système de creusement dans le plan
+
+    mineur_x2 = mineur_x
+    x = 0
+
+    while mineur_x2 > 2560:
+        mineur_x2 -= 2560
+        x += 1
+    while mineur_x2 < 0:
+        mineur_x2 += 2560
+        x -= 1
+
+    if band_time >= 12:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 10:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 8:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 6:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 4:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 2:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+    if band_time >= 0.6:
+        plan.blit(band2, (mineur_x - 2560 * x, mineur_y))
+        band_time = 0
+
+    return band_time
