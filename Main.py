@@ -115,31 +115,31 @@ perdu = text.render(" You have autodestroyed !", 1, BLANC)
 volume = 1.6  # plus tard on pourras changer le volume
 
 # charge les bruitages du jeu
-son_collision = pygame.mixer.Sound("sounds/collision.wav")
+son_collision = pygame.mixer.Sound("Bruitage/collision.wav")
 son_collision.set_volume(0.32 * volume)
-son_collecter = pygame.mixer.Sound("sounds/collecter.wav")
+son_collecter = pygame.mixer.Sound("Bruitage/collecter.wav")
 son_collecter.set_volume(0.1 * volume)
-son_ameliorer = pygame.mixer.Sound("sounds/amelioration.wav")
+son_ameliorer = pygame.mixer.Sound("Bruitage/amelioration.wav")
 son_ameliorer.set_volume(0.4 * volume)
-son_click = pygame.mixer.Sound("sounds/click.wav")
+son_click = pygame.mixer.Sound("Bruitage/click.wav")
 son_click.set_volume(0.2 * volume)
-son_oiseau1 = pygame.mixer.Sound("sounds/oiseau1.wav")
+son_oiseau1 = pygame.mixer.Sound("Bruitage/oiseau1.wav")
 son_oiseau1.set_volume(0.12 * volume)
-son_oiseau2 = pygame.mixer.Sound("sounds/oiseau2.wav")
+son_oiseau2 = pygame.mixer.Sound("Bruitage/oiseau2.wav")
 son_oiseau2.set_volume(0.12 * volume)
-son_error = pygame.mixer.Sound("sounds/error.wav")
+son_error = pygame.mixer.Sound("Bruitage/error.wav")
 son_error.set_volume(1.2 * volume)
-son_usine1 = pygame.mixer.Sound("sounds/usine1.wav")
+son_usine1 = pygame.mixer.Sound("Bruitage/usine1.wav")
 son_usine1.set_volume(0.25 * volume)
-son_usine2 = pygame.mixer.Sound("sounds/usine2.wav")
+son_usine2 = pygame.mixer.Sound("Bruitage/usine2.wav")
 son_usine2.set_volume(0.25 * volume)
-son_moteur = pygame.mixer.Sound("sounds/moteur.wav")
+son_moteur = pygame.mixer.Sound("Bruitage/moteur.wav")
 son_moteur.set_volume(0.1 * volume)
-son_moteur_boost = pygame.mixer.Sound("sounds/moteur_boost.wav")
+son_moteur_boost = pygame.mixer.Sound("Bruitage/moteur_boost.wav")
 son_moteur_boost.set_volume(0.3 * volume)
-son_moteur_slow = pygame.mixer.Sound("sounds/moteur_slow.wav")
+son_moteur_slow = pygame.mixer.Sound("Bruitage/moteur_slow.wav")
 son_moteur_slow.set_volume(0.07 * volume)
-son_panne_essence = pygame.mixer.Sound("sounds/panne_essence.wav")
+son_panne_essence = pygame.mixer.Sound("Bruitage/panne_essence.wav")
 son_panne_essence.set_volume(0.32 * volume)
 
 # affiche le menu
@@ -260,6 +260,7 @@ while menu:  # boulce affichant le menu
             mineur5 = mineur
             drill_time = 1
             sense = 270
+            band_time = -5
             boost_time = -300
             boost = 1
             stat_boost = 150
@@ -556,8 +557,9 @@ while menu:  # boulce affichant le menu
                     drill_time = 0
                 drill_time += 1
 
-                """band2 = pygame.transform.rotate(band, sense - 270)
-                plan.blit(band2, (mineur_x, mineur_y))  # creuse dans le plan"""
+                band2 = pygame.transform.rotate(band, sense - 270)
+                band_time = creuser(band_time, band2, plan, mineur_x, mineur_y)
+                band_time += boost * vitesse * 1.6 * surface
 
                 # affiche tout a l'ecran
                 surface_fenetre.fill(BLEU)
