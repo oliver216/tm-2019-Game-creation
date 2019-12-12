@@ -264,7 +264,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
             if usine == 1:
                 if 500 < event.pos[0] < 1080 and 50 < event.pos[1] < 300:
                     if 608 < event.pos[0] < 673 and 77 < event.pos[1] < 107 and prix_essence != "":
-                        if prix_essence < argent:
+                        if prix_essence <= argent:
                             son_ameliorer.play()
                             if essence_max == 20000:
                                 essence_max = 40000
@@ -296,7 +296,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                         else:
                             son_error.play()
                     if 608 < event.pos[0] < 673 and 130 < event.pos[1] < 160 and prix_vitesse != "":
-                        if prix_vitesse < argent:
+                        if prix_vitesse <= argent:
                             son_ameliorer.play()
                             if vitesse == 2:
                                 vitesse = 2.5
@@ -319,7 +319,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                         else:
                             son_error.play()
                     if 608 < event.pos[0] < 673 and 187 < event.pos[1] < 217 and prix_rotation != "":
-                        if prix_rotation < argent:
+                        if prix_rotation <= argent:
                             son_ameliorer.play()
                             if rotation == 2.6:
                                 rotation = 3
@@ -342,7 +342,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                         else:
                             son_error.play()
                     if 608 < event.pos[0] < 673 and 240 < event.pos[1] < 270 and prix_valeur_gems != "":
-                        if prix_valeur_gems < argent:
+                        if prix_valeur_gems <= argent:
                             son_ameliorer.play()
                             if valeur_gems == 2.5:
                                 valeur_gems = 3
@@ -363,7 +363,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
             if usine == 2:
                 if 301 < event.pos[0] < 880 and 50 < event.pos[1] < 300:
                     if 408 < event.pos[0] < 473 and 77 < event.pos[1] < 107 and prix_booster != "":
-                        if prix_booster < argent:
+                        if prix_booster <= argent:
                             son_ameliorer.play()
                             if booster == 2.5:
                                 booster = 3
@@ -383,7 +383,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                         else:
                             son_error.play()
                     if 408 < event.pos[0] < 473 and 130 < event.pos[1] < 160 and prix_ralentire != "":
-                        if prix_ralentire < argent:
+                        if prix_ralentire <= argent:
                             son_ameliorer.play()
                             if ralentire == 0.4:
                                 ralentire = 0.3
@@ -403,7 +403,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                         else:
                             son_error.play()
                     if 408 < event.pos[0] < 473 and 183 < event.pos[1] < 217 and prix_slow_fuel != "":
-                        if prix_slow_fuel < argent:
+                        if prix_slow_fuel <= argent:
                             son_ameliorer.play()
                             if slow_fuel == 2000:
                                 slow_fuel = 3000
@@ -425,7 +425,7 @@ def upgrade(ralentire, booster, essence_max, vitesse, rotation, valeur_gems, pui
                                 argent -= 250
                         else:
                             son_error.play()
-                    if 408 < event.pos[0] < 473 and 240 < event.pos[1] < 270 and prix_puissance != "":
+                    if 408 < event.pos[0] <= 473 and 240 < event.pos[1] < 270 and prix_puissance != "":
                         if prix_puissance < argent:
                             son_ameliorer.play()
                             if puissance == 2:
